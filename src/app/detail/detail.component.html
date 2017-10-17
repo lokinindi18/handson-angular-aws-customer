@@ -1,0 +1,91 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">Create Customer</h3>
+	</div>
+	<div *ngIf="errorMessage" class="alert alert-danger">
+		{{errorMessage}}}
+	</div>
+	<div class="panel-body">
+		<form class="form-horizontal" (ngSubmit)="onUpdate()">
+			<div class="row">
+				<div class="col-md-6">
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">First name</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="firstName"
+								placeholder="First name..." required [(ngModel)]="customer.firstName" name="firstName">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Last name</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="lastName"
+								placeholder="Last name..." required  [(ngModel)]="customer.lastName" name="lastName">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Date of Birth</label>
+						<div class="col-sm-9">
+							<input type="date" class="form-control" id="dateOfBirth"
+								placeholder="Date of Birth..." required [(ngModel)]="customer.dateOfBirth" 
+								name="dateOfBirth">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Image</label>
+						<div class="col-sm-9">
+							<input type="file" class="form-control" id="image"
+								placeholder="Image..." [(ngModel)]="customer.image"  name="image">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div ngModelGroup="address">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Street</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control"
+									placeholder="Street..." required name="customer.address.street" [(ngModel)]="customer.address.street">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Town</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="town"
+									placeholder="Town..." required name="town"  [(ngModel)]="customer.address.town">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">County</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="county"
+									placeholder="County..." required name="county"  [(ngModel)]="customer.address.county">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Postcode</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="postcode"
+									placeholder="Postcode..." required name="postcode"  [(ngModel)]="customer.address.postcode">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-9 col-sm-12">
+								<button class="btn btn-primary" (click)="onBack()">Back</button>
+								<button class="btn btn-primary">Update</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

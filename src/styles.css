@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+p {
+    margin: 18px 18px 10px !important;
+    font-size: large !important;
+    color: navy !important;
+}
+
+.panel {
+    margin-top: 25px;
+    box-shadow: 0 0 10px 10px #cdcdcd;
+}
