@@ -14,7 +14,7 @@ phases:
         commands:
             - echo Build started on `date`
             #ideally want to use --prod --aot...but for current project it is failing
-            - ng build --prod --env=${BUILD_ENV}
+            - ng build --env=${BUILD_ENV}
     post_build:
          commands:
             - echo Build completed on `date`
