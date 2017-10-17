@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  endpointUrlPrefix: 'http://produrl:8080'
 };
