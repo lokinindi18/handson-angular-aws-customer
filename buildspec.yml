@@ -2,7 +2,7 @@ version: 0.1
 environment_variables:
     plaintext:
         S3_BUCKET: "mycodebuildbucket"
-        BUILD_ENV: "prod"
+        BUILD_ENV: "dev"
 phases:
     install:
         commands:
