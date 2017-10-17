@@ -1,0 +1,27 @@
+version: 0.1
+environment_variables:
+    plaintext:
+        S3_BUCKET: "mycodebuildbucket"
+        BUILD_ENV: "prod"
+phases:
+    install:
+        commands:
+            - echo Installing source NPM dependencies...
+            - npm install
+            - npm uninstall --save-dev angular-cli
+            - npm install --save-dev @angular/cli@latest
+            - npm install -g @angular/cli@latest
+    build:
+        commands:
+            - echo Build started on `date`
+            #ideally want to use --prod --aot...but for current project it is failing
+            - ng build --env=${BUILD_ENV}
+    post_build:
+         commands:
+            - aws s3 cp dist s3://${S3_BUCKET} --recursive
+            - echo Build completed on `date`
+artifacts:
+    files:
+        - 'dist/**/*'
+    #base-directory: 'dist'
+    discard-paths: yes
